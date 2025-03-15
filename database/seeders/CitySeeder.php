@@ -17,7 +17,5 @@ class CitySeeder extends Seeder
         City::create(['country_id' => 1, 'name' => 'Washington']);
         City::create(['country_id' => 2, 'name' => 'London']);
         City::create(['country_id' => 2, 'name' => 'Birmingham']);
-        City::create(['country_id' => 3, 'name' => 'Berlin']);
-        City::create(['country_id' => 3, 'name' => 'Stuttgart']);
     }
 }
