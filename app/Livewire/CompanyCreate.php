@@ -9,7 +9,9 @@ use Livewire\Component;
 class CompanyCreate extends Component
 {
     public $countries;
+    public $name;
     public $country;
+    public $city;
     public $cities = [];
 
     public function mount()
