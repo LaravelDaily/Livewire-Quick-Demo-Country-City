@@ -5,20 +5,22 @@ namespace App\Livewire;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class CompanyCreate extends Component
 {
-    public $countries;
-    public $name;
-    public $country;
-    public $city;
-    public $cities = [];
-    public $savedName = '';
+    public Collection $countries;
+    public string $name = '';
+    public string $country = '';
+    public string $city = '';
+    public Collection $cities;
+    public string $savedName = '';
 
     public function mount()
     {
         $this->countries = Country::all();
+        $this->cities = collect([]);
     }
 
     public function updated($property)
@@ -44,6 +46,7 @@ class CompanyCreate extends Component
 
         $this->savedName = $this->name;
 
-        $this->reset('name', 'country', 'city', 'cities');
+        $this->reset('name', 'country', 'city');
+        $this->cities = collect([]);
     }
 }
