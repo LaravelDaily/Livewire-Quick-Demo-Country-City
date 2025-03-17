@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Country;
 use Livewire\Component;
 
@@ -29,5 +30,16 @@ class CompanyCreate extends Component
     public function render()
     {
         return view('livewire.company-create');
+    }
+
+    public function save(): void
+    {
+        Company::create([
+            'name' => $this->name,
+            'country_id' => $this->country,
+            'city_id' => $this->city,
+        ]);
+
+        $this->reset('name', 'country', 'city', 'cities');
     }
 }
