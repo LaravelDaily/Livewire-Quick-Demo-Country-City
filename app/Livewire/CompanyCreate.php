@@ -14,6 +14,7 @@ class CompanyCreate extends Component
     public $country;
     public $city;
     public $cities = [];
+    public $savedName = '';
 
     public function mount()
     {
@@ -24,6 +25,7 @@ class CompanyCreate extends Component
     {
         if ($property == 'country') {
             $this->cities = City::where('country_id', $this->country)->get();
+            $this->city = $this->cities->first()->id;
         }
     }
 
@@ -39,6 +41,8 @@ class CompanyCreate extends Component
             'country_id' => $this->country,
             'city_id' => $this->city,
         ]);
+
+        $this->savedName = $this->name;
 
         $this->reset('name', 'country', 'city', 'cities');
     }

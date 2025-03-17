@@ -1,4 +1,11 @@
 <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <!-- Success Alert -->
+    @if ($savedName != '')
+        <div class="mb-4 p-4 text-green-700 bg-green-100 border border-green-400 rounded">
+            Company "{{ $savedName }}" saved successfully
+        </div>
+    @endif
+
     <!-- Form -->
     <form wire:submit="save">
         <div class="mb-4">
