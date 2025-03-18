@@ -11,6 +11,9 @@
         <div class="mb-4">
             <label for="name" class="block text-gray-700">Company name</label>
             <input wire:model="name" type="text" required id="name" class="w-full p-2 mt-1 border rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            @error('name')
+                <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
+            @enderror
         </div>
         <div class="mb-4">
             <label for="country" class="block text-gray-700">Country</label>
@@ -20,6 +23,9 @@
                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                 @endforeach
             </select>
+            @error('country')
+                <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
+            @enderror
         </div>
         <div class="mb-4">
             <label for="city" class="block text-gray-700">City</label>
@@ -30,6 +36,9 @@
                     <option value="">-- choose country first --</option>
                 @endforelse
             </select>
+            @error('city')
+                <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
+            @enderror
         </div>
         <button type="submit" class="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600">Submit</button>
     </form>

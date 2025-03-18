@@ -6,14 +6,22 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class CompanyCreate extends Component
 {
     public Collection $countries;
+
+    #[Validate('required|min:3', onUpdate: false)]
     public string $name = '';
+
+    #[Validate('required', onUpdate: false)]
     public string $country = '';
+
+    #[Validate('required', onUpdate: false)]
     public string $city = '';
+
     public Collection $cities;
     public string $savedName = '';
 
@@ -38,6 +46,8 @@ class CompanyCreate extends Component
 
     public function save(): void
     {
+        $this->validate();
+
         Company::create([
             'name' => $this->name,
             'country_id' => $this->country,
