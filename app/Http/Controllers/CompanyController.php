@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\City;
-use App\Models\Country;
-use Illuminate\Http\Request;
+use App\Models\Company;
 
 class CompanyController extends Controller
 {
     public function create()
     {
-        $countries = Country::all();
+        return view('companies.create');
+    }
 
-        return view('companies.create', compact('countries'));
+    public function edit(Company $company)
+    {
+        return view('companies.edit', compact('company', 'countries'));
     }
 }
