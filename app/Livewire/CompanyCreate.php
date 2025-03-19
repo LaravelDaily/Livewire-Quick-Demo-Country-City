@@ -6,9 +6,11 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\Country;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
+#[Title('Create Company')]
 class CompanyCreate extends Component
 {
     public Collection $countries;
